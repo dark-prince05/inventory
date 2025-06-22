@@ -208,3 +208,94 @@ dialog::backdrop {
   cursor: pointer;
   margin-top: -0.5rem;
 }
+
+@media screen and (max-width: 600px) {
+  header {
+    padding: 0 0.5rem;
+  }
+
+  header div {
+    gap: 1rem;
+  }
+
+  header p {
+    display: none;
+  }
+
+  .add-form {
+    max-width: 390px;
+    padding: 1rem;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  form > * {
+    font-size: 1rem;
+  }
+
+  input,
+  select {
+    font-size: 1rem;
+  }
+
+  .close-btn {
+    width: 100px;
+    font-size: 1.2rem;
+  }
+
+  .modal div {
+    width: 380px;
+    height: 200px;
+  }
+
+  .modal p {
+    font-size: 1.2rem;
+  }
+
+  .item-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 180px);
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 0 0 0;
+  }
+
+  .item {
+    height: 300px;
+    font-size: 0.9rem;
+  }
+
+  .item img {
+    height: 65%;
+  }
+
+  dialog {
+    width: 100dvw;
+  }
+
+  .preview {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .image-container {
+    height: 200px;
+    flex: 0 0 300px;
+  }
+
+  .desc-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .desc-container button {
+    position: absolute;
+    top: 3%;
+  }
+}

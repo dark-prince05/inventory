@@ -106,7 +106,7 @@ const AddItemPage = () => {
           />
         </div>
         <div className="input-area">
-          <label htmlFor="additional-img">Additional Images:</label>
+          <label htmlFor="additional-img">Additional Images(max: 10):</label>
           <input
             type="file"
             name="additional-img"
