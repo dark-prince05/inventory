@@ -13,14 +13,26 @@ const AddItemPage = () => {
 
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = (e) => {
+  const createImageURL = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => reject;
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const imgURL = await createImageURL(formData.coverImg);
+    const addImgURLs = await Promise.all(
+      formData.additionalImg.map((file) => createImageURL(file)),
+    );
+    addImgURLs.unshift(imgURL);
     const newItem = {
       ...formData,
-      coverImg: URL.createObjectURL(formData.coverImg),
-      additionalImg: formData.additionalImg.map((file) =>
-        URL.createObjectURL(file),
-      ),
+      coverImg: imgURL,
+      additionalImg: addImgURLs,
     };
 
     setItems([...items, newItem]);
@@ -60,11 +72,14 @@ const AddItemPage = () => {
             }
             required
           >
-            <option value="shirt">Shirt</option>
-            <option value="pants">Pants</option>
-            <option value="shoe">Shoe</option>
-            <option value="sports-gear">Sports Gear</option>
-            <option value="gym-gear">Gym Gear</option>
+            <option value="" disabled hidden>
+              -- Select Item Type --
+            </option>
+            <option value="Shirt">Shirt</option>
+            <option value="Pants">Pants</option>
+            <option value="Shoe">Shoe</option>
+            <option value="Sports Gear">Sports Gear</option>
+            <option value="Gym Gear">Gym Gear</option>
           </select>
         </div>
         <div className="input-area">
