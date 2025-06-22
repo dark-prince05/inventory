@@ -258,7 +258,7 @@ dialog::backdrop {
 
   .item-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 180px);
+    grid-template-columns: repeat(auto-fit, 280px);
     justify-content: center;
     gap: 1rem;
     padding: 0 0 0 0;
